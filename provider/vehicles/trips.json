@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CityofLosAngeles/mobility-data-specification/master/provider/for_hire_vehicle/trips.json",
+  "$id": "https://raw.githubusercontent.com/CityofLosAngeles/mobility-data-specification/master/provider/vehicles/trips.json",
   "$schema": "http://json-schema.org/draft-01/schema#",
   "title": "The MDS Provider Schema, trips payload",
   "type": "object",
@@ -164,16 +164,20 @@
       },
       "additionalProperties": false
     },
-    "propulsion_type": {
-      "$id": "#/definitions/propulsion_type",
+    "vehicle_type": {
+      "$id": "#/definitions/vehicle_type",
       "type": "array",
-      "description": "The type of propulsion; allows multiple values",
+      "description": "The type of vehicle; allows multiple values",
       "items": {
         "type": "string",
         "enum": [
-          "combustion",
+          "automobile",
+          "taxi",
+          "gas-powered",
           "electric",
-          "hydrogen"
+          "hydrogen",
+          "automobile",
+          "shuttle"
         ]
       },
       "minItems": 1
@@ -184,12 +188,14 @@
       "type": "number",
       "minimum": 0.0
     },
-    "vehicle_type": {
-      "$id": "#/definitions/vehicle_type",
+    "occupancy": {
+      "$id": "#/definitions/occupancy",
       "type": "string",
-      "description": "The type of vehicle",
+      "description": "The level of occupancy in the vehicle. Select high if more than 4 passengers.",
       "enum": [
-        "automobile"
+        "single",
+        "shared",
+        "high"
       ]
     },
     "version": {
@@ -243,7 +249,7 @@
               "device_id",
               "vehicle_id",
               "vehicle_type",
-              "propulsion_type",
+              "occupancy",
               "trip_id",
               "trip_duration",
               "trip_distance",
@@ -280,12 +286,12 @@
               "vehicle_type": {
                 "$id": "#/properties/data/properties/trips/items/properties/vehicle_type",
                 "$ref": "#/definitions/vehicle_type",
-                "description": "The type of vehicle"
+                "description": "The type of vehicle; allows multiple values"
               },
-              "propulsion_type": {
-                "$id": "#/properties/data/properties/trips/items/properties/propulsion_type",
-                "description": "The type of propulsion; allows multiple values",
-                "$ref": "#/definitions/propulsion_type"
+              "occupancy": {
+                "$id": "#/properties/data/properties/trips/items/properties/occupancy",
+                "description": "The level of occupancy in the vehicle. Select high if more than 4 passengers.",
+                "$ref": "#/definitions/occupancy"
               },
               "trip_id": {
                 "$id": "#/properties/data/properties/trips/items/properties/trip_id",
