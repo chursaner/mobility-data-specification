@@ -1,6 +1,6 @@
 {
-  "$id": "https://raw.githubusercontent.com/CityofLosAngeles/mobility-data-specification/master/provider/vehicles/trips.json",
-  "$schema": "http://json-schema.org/draft-01/schema#",
+  "$id": "https://raw.githubusercontent.com/CityofLosAngeles/mobility-data-specification/master/provider/vehicle/trips.json",
+  "$schema": "http://json-schema.org/draft-03/schema#",
   "title": "The MDS Provider Schema, trips payload",
   "type": "object",
   "definitions": {
