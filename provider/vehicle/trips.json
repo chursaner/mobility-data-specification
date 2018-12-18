@@ -173,10 +173,11 @@
         "enum": [
           "automobile",
           "taxi",
+          "carshare",
           "gas-powered",
           "electric",
+          "hybrid",
           "hydrogen",
-          "automobile",
           "shuttle"
         ]
       },
